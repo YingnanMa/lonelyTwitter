@@ -1,3 +1,13 @@
+
+/*
+ *  Copyright © 2018 Team X, CMPUT301, University of Alberta - All Rights Reserved.
+ * You may use, distribute or modify this code under terms and conditions of Code of Student Behavior at
+ * University of Alberta.
+ * You can find a copy of the license in this project. Otherwise, please contact
+ *   contact@abc.ca
+ * /
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -26,6 +36,17 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+
+/**
+ * Represents a LonelyTwitterActivity
+ *
+ * @author YingnanMa
+ *
+ * @version 1.0
+ *
+ */
+
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "tweet_list.sav";
@@ -37,6 +58,13 @@ public class LonelyTwitterActivity extends Activity {
 	
 	/** Called when the activity is first created. */
 	@Override
+
+	/**
+	 * create in class activity
+	 *
+	 * @param savedInstanceState - the bundle
+	 *
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i("LifeCycle ---->", "onCreate is called");
@@ -67,6 +95,16 @@ public class LonelyTwitterActivity extends Activity {
 
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
+			/**
+			 * Sets the onclick method
+			 *
+			 * @param v - the new message of the tweet
+			 * @throws TweetTooLongException - is thrown when the message is over 140 characters
+			 *
+			 * @see ImportantTweet
+			 * @see NormalTweet
+			 */
+
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 
@@ -83,6 +121,10 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	@Override
+	/**
+	 * Sets the onstart method
+	 *
+	 */
 	protected void onStart() {
 
 		// TODO Auto-generated method stub
@@ -100,6 +142,10 @@ public class LonelyTwitterActivity extends Activity {
 
 
 	}
+	/**
+	 * load information from the file
+	 *
+	 */
 
 	private void loadFromFile() {
 
@@ -128,7 +174,11 @@ public class LonelyTwitterActivity extends Activity {
 
 
 	}
-	
+
+	/**
+	 * save the information in file
+	 *
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,

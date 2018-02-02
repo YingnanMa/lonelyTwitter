@@ -44,6 +44,13 @@ public abstract class Tweet implements Tweetable {
 //        message = message;
     }
 
+    /**
+     *Constructs a tweet instance using the given date
+     *
+     * @param date the date of the tweet
+     */
+
+
     Tweet(String message, Date date){
         this.message = message;
         this.date = date;
