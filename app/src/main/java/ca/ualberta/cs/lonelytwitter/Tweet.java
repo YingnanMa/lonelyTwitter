@@ -2,9 +2,22 @@ package ca.ualberta.cs.lonelytwitter;
 
 import java.util.Date;
 
+import io.searchbox.annotations.JestId;
+
 public abstract class Tweet implements Tweetable {
     private String message;
     private Date date;
+
+    @JestId
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Tweet(String message){
         this.message = message;
@@ -25,11 +38,11 @@ public abstract class Tweet implements Tweetable {
 
 
     public void setMessage(String message) throws TweetTooLongException {
-        if (message.length() > 140){
-            //Do Something!
+        if (message.length() < 140) {
+            this.message = message;
+        }else{
             throw new TweetTooLongException();
         }
-        this.message = message;
     }
 
     public void setDate(Date date) {
